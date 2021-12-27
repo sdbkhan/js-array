@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="concatenates">
+      <h2 class="jsclass">JS Array</h2>
+      <p id="demos"></p>
+      <p id="demo"></p>
+    
+
+      <p id="copy1"></p>
+      <p id="copy2"></p>
+
+      <p id="entrie2"></p>
+      <p id="entries"></p>
+
+      <p id="every1"></p>
+
+      <p id="fill1"></p>
+      <p id="fill"></p>
+
+      <p id="filter"></p>
+
+      <p id="find"></p>
+      <p><input type="number" id="ageToCheck" value="20" /></p>
+      <button onclick="myFunction()">Test</button>
+      <p id="findAge"></p>
+
+      <p id="findIndex"></p>
+      <p><input type="number" id="checkIndex" value="15" /></p>
+      <button onclick="myFindIndexFunction()">TestIndex</button>
+      <p id="findAgeIndex"></p>
+
+      <p id="forEach"></p>
+
+      <p id="Arrayfrom"></p>
+
+      <p id="includes"></p>
+
+      <p id="indexOf"></p>
+
+      <p id="isArray"></p>
+
+      <p id="join"></p>
+
+      <p id="map"></p>
+
+      <p id="pop"></p>
+
+      <p id="prop"></p>
+
+      <p id="push"></p>
+
+      <p id="reduce"></p>
+
+      <p id="sort"></p>
+      <p id="reverse"></p>
+
+
+      <p id = "splice"></p>
+    </div>
+    <script>
+      // concatenates
+      const arr1 = ["Cecilie", "Lone"];
+      const arr2 = ["Emil", "Tobias", "Linus"];
+      const arr3 = ["Cecilie", "Lone", "Emil", "Tobias", "Linus"];
+      const arr4 = ["Emil", "Tobias", "Linus", "Cecilie", "Lone"];
+      const concatenates = arr1.concat(arr2, arr3, arr4);
+      const children = arr1.concat(arr2);
+      document.getElementById("demos").innerHTML =
+        "<h3>Concat</h3>" +
+        concatenates +
+        "Syntax :-array1.concat(array2, array3, ..., arrayX)";
+      document.getElementById("demo").innerHTML = children;
+
+      // copywithin
+      const arrcopy1 = ["copy1", "copy2", "copy3", "copy4"];
+      const arrCopy2 = ["a", "b", "c", "d", "e"];
+      const newArr = arrcopy1.copyWithin(2, 0);
+      const newCopyArr = arrCopy2.copyWithin(1, 0, 3);
+      document.getElementById("copy1").innerHTML =
+        "<h3>CopyWithin</h3>" +
+        newArr +
+        "<br>" +
+        "Syntax :- array.copyWithin(target, start, end)";
+      document.getElementById("copy2").innerHTML = newCopyArr;
+
+      // entries
+
+      const arrEntries1 = ["a", "b", "c", "d", "e"];
+      const newEntries = arrEntries1.entries();
+      for (let finalEntries of newEntries) {
+        document.getElementById("entries").innerHTML += finalEntries + "<br>";
+      }
+      document.getElementById("entrie2").innerHTML =
+        "<h3>Entries</h3> syntax :- array.entries()";
+
+      // every
+      const newEvery = [12, 23, 45, 60, 80];
+      document.getElementById("every1").innerHTML =
+        "<h3>Every</h3>" +
+        newEvery.every(checkNewEvery) +
+        "<br>" +
+        "Syntax :- array.every(function(currentValue, index, arr), thisValue)";
+      function checkNewEvery(age) {
+        return age > 10;
+      }
+
+      //   fill
+      const newFill = ["shadab", "sakib", "Rahul", "Dev"];
+      const secondfFill = ["Rahul", "Roy", "Usman", "Ertugrul"];
+      const finalFill = newFill.fill("Shadab");
+      const SecondFinalFill = secondfFill.fill("Ertugrul", 2, 3);
+      document.getElementById("fill1").innerHTML =
+        "<h3>Fill</h3>" +
+        finalFill +
+        "<br>" +
+        "Syntax :- array.fill(value, start, end)";
+      document.getElementById("fill").innerHTML = SecondFinalFill;
+
+      //Filter
+      const newFilter = [20, 30, 40, 50, 60];
+      const finalFilter = newFilter.filter(checkFilter);
+      function checkFilter(age) {
+        return age > 20;
+      }
+      document.getElementById("filter").innerHTML =
+        "<h3>Filter</h3>" +
+        finalFilter +
+        "<br>" +
+        "Syntax :- array.filter(function(currentValue, index, arr), thisValue)";
+
+      // Find
+      const newFind = [10, 12, 15, 18, 20, 40];
+      const finalFind = newFind.find(checkFind);
+      function checkFind(findnumber) {
+        return findnumber > 18;
+      }
+      document.getElementById("find").innerHTML =
+        "<h3>Find</h3>" +
+        finalFind +
+        "<br>" +
+        "Syntax :- array.find(function(currentValue, index, arr),thisValue)";
+
+      function checkAge(age) {
+        return age > document.getElementById("ageToCheck").value;
+      }
+
+      function myFunction() {
+        document.getElementById("findAge").innerHTML = newFind.find(checkAge);
+      }
+
+      // findIndex
+      const newFindIndex = [5, 10, 15, 20, 25];
+      const finalFindIndex = newFindIndex.findIndex(checkFindIndex);
+      document.getElementById("findIndex").innerHTML =
+        "<h3>Find Index</h3>" +
+        finalFindIndex +
+        "<br>" +
+        "Syntax :- array.find(function(currentValue, index, arr),thisValue)";
+      function checkFindIndex(checkIndex) {
+        return checkIndex > 10;
+      }
+
+      function checkIndex(chkIn) {
+        return chkIn > document.getElementById("checkIndex").value;
+      }
+
+      function myFindIndexFunction() {
+        return (document.getElementById("findAgeIndex").innerHTML =
+          newFindIndex.findIndex(checkIndex));
+      }
+
+      // forEach
+      let finalForEachElem = "";
+      const newForEach = ["Apple", "Banana", "Cherry"];
+      const finalForEach = newForEach.forEach(checkForEach);
+      function checkForEach(item, index) {
+        finalForEachElem += index + ":" + item + "<br>";
+      }
+      document.getElementById("forEach").innerHTML =
+        "<h3>For Each</h3>" +
+        finalForEachElem +
+        "<br>" +
+        "Syntax :- array.forEach(function(currentValue, index, arr), thisValue)";
+
+      // Array from
+
+      const newArrayForm = "123455";
+      const arrrr = [20, 29, 20, 10, 20];
+      const finalArrayForm = Array.from(newArrayForm);
+      let Findind = finalArrayForm.findIndex(checkindx);
+      function checkindx(indxx) {
+        return indxx > 3;
+      }
+      console.log("finddd", Findind);
+      document.getElementById("Arrayfrom").innerHTML =
+        "<h3>Array.From</h3>" +
+        finalArrayForm +
+        "<br>" +
+        "Syntax :- Array.from(object, mapFunction, thisValue)";
+      // const mapper = new Map([["1","a"],["2","b"]]);
+
+      // console.log("keys",Array.from(mapper.value()))
+      // console.log("values",Array.from(mapper.value()))
+      // const map = new Map([
+      //   [1, 2],
+      //   [2, 4],
+      //   [4, 8],
+      // ]);
+      // Array.from(map);
+      // // [[1, 2], [2, 4], [4, 8]]
+
+      // const mapper = new Map([
+      //   ["1", "a"],
+      //   ["2", "b"],
+      // ]);
+      // Array.from(mapper.values());
+      // // ['a', 'b'];
+
+      // Array.from(mapper.keys());
+      // // ['1', '2'];
+
+      // include
+      const newInclude = ["Mango", "Apple", "Orange", "Mango", "kiwi"];
+      const finalInclude = newInclude.includes("Mango", 0);
+      document.getElementById("includes").innerHTML =
+        "<h3>Includes</h3>" +
+        finalInclude +
+        "<br>" +
+        "Syntax :- array.includes(element, start)";
+
+      // index of
+      const newIndexof = ["Mango", "Apple", "Orange", "Mango", "kiwi"];
+      const finalIndexof = newIndexof.indexOf("Mango", 1);
+
+      document.getElementById("indexOf").innerHTML =
+        "<h3>Index Of</h3>" +
+        finalIndexof +
+        "<br>" +
+        "Syntax :- array.includes(element, start)";
+
+      // isArray
+      const newIsArr = [1, 2, 3, 4, 5, 5];
+      const finalIsArr = Array.isArray(newIsArr);
+      document.getElementById("isArray").innerHTML =
+        "<h3>Array is Array</h3>" +
+        finalIsArr +
+        "<br>" +
+        "Syntax :- Array.isArray(obj)";
+
+      // join
+      const newjoin = ["hello", "brother"];
+      const finalJoin = newjoin.join();
+      //  const finalJoin = newjoin.join("")
+      //const finalJoin = newjoin.join("-")
+      document.getElementById("join").innerHTML =
+        "<h3>Join</h3>" +
+        finalJoin +
+        "<br>" +
+        "Syntax :- array.join(separator)";
+      console.log(finalJoin);
+
+      // map
+      const newmap = [2, 4, 6, 34, 5];
+      const finalMap = newmap.map(myMapFunction);
+      function myMapFunction(mapvalue) {
+        return 10 * mapvalue;
+      }
+
+      document.getElementById("map").innerHTML =
+        "<h3>Map</h3>" +
+        finalMap +
+        "<br>" +
+        "Syntax :- array.map(function(currentValue, index, arr), thisValue)";
+
+      // pop
+      const newPop = ["hello", "john", "Doe"];
+      const finalPop = newPop.pop();
+      document.getElementById("pop").innerHTML =
+      
+      "<h3>Pop</h3>" +
+      newPop +
+        "<br>" +
+        "Syntax :- array.pop()";
+     console.log(finalPop);
+
+      // prototype
+      Array.prototype.myUcase = function () {
+        for (let i = 0; i < this.length; i++) {
+          this[i] = this[i].toUpperCase();
+        }
+      };
+      const newProp = ["ayush", "sakib", "shadab", "prince", "sagar"];
+      const finalProp = newProp.myUcase();
+      console.log(finalProp);
+      document.getElementById("prop").innerHTML =
+        "<h3>Prototype</h3>" + newProp +
+      "<br>" + "Syntax :- Array.prototype.name = value";
+
+      // push 
+
+      const pushArr = [21,344,65,78,90];
+      const finalPush = pushArr.push(34);
+      document.getElementById("push").innerHTML= "<h3>Push</h3>" + pushArr +
+      "<br>" + "Syntax :- array.push(item1, item2, ..., itemX)";
+
+      //reduce 
+
+      const reduceArr = [225,25,50,50];
+      const finalReduceArr = reduceArr.reduce(sumFunc)
+      function sumFunc (total,num){
+        return total - num
+      }
+      document.getElementById("reduce").innerHTML = "<h3>Reduce</h3>" + reduceArr.reduce(sumFunc) +
+      "<br>" + "Syntax :- array.reduce(function(total, currentValue, currentIndex, arr), initialValue)";
+
+      // sort 
+      const sortArr= ["banana","Apple","orange","Aaa","Ba"]
+   document.getElementById("sort").innerHTML = "<h3>Sort And Reverse</h3>" + sortArr.sort() +
+      "<br>" + "Syntax :- array.sort and array.reverse";
+  //  document.getElementById("reverse").innerHTML = sortArr.reverse()
+
+  // splice 
+  const spliceArr = ["hi","hello","hwru","bye"]
+  const finalSpliceArr = spliceArr.splice(2,0,"good morning","byee")
+  document.getElementById("splice").innerHTML = "<h3>Splice</h3>" + spliceArr +
+      "<br>" + "Syntax :- array.splice(index, howmany, item1, ....., itemX)";
+    </script>
+  </body>
+</html>

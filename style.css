@@ -1,0 +1,22 @@
+/* body {
+    color: currentColor;
+    text-align: center;
+    border: 1px solid;
+} */
+body {
+    font-family: monospace;
+    background-color: #04AA6D;
+    color: white;
+    font-size: x-large;
+
+}
+.concatenates{
+    color: currentColor;
+    text-align: center;
+    border: 1px solid;  
+}
+h3 {
+    border: 1px solid azure;
+    width: 25%;
+    margin-left: 40%;
+}
